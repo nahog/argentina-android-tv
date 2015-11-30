@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TV en vivo</string>
+    <string name="title_activity_main">TV en vivo</string>
+    <string name="saved_channel">0</string>
+    <string name="tuner">Tuner</string>
+    <string name="tuning">Tuning</string>
+</resources>
