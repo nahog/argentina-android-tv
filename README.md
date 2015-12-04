@@ -21,7 +21,6 @@ The app is meant to be used with the remote control, and only uses the D-PAD and
 - D-PAD up and down also moves between channels (when the channel list is not open).
 - D-PAD right and left moves between alternative streams of the same channel.
 - Center button provides channel list and current channel OSD.
-
 - Volumen Up, Down and mute pass through and controls the TV function.
 
 ## Technical details
