@@ -15,14 +15,17 @@ The idea behind this app is to have access to IPTV services from my home country
 
 ## How to use
 
-The app is meant to be used with the remote control, and only uses the D-PAD and the Center button.
+The app is meant to be used with the remote control, and only uses the D-PAD and the Channel Up/Down buttons.
 
-- D-PAD left and rigth moves between channels.
-- D-PAD up and down moves between alternative streams of the same channel.
+- Channel up and down moves between channels.
+- D-PAD up and down also moves between channels (when the channel list is not open).
+- D-PAD right and left moves between alternative streams of the same channel.
 - Center button provides channel list and current channel OSD.
+
+- Volumen Up, Down and mute pass through and controls the TV function.
 
 ## Technical details
 
 The only technical detail that stands out from the app is that even when a default channel list is provided, the app itself, uses a file in the external storage of the TV and is for the runtime channel list. The app can be configured to use any IPTV channel that is supported by the combination of your tv codecs and the android VideoView.
 
-The file can be located in the sdcard/nahog.argetinatv/files/channels.txt location and the format is very basic, just one CHANNEL_NAME|CHANNEL_URL per line, if the channel name is repeated, the extra urls will be used as alternative streams for the channel.
+The file can be located in the sdcard/nahog.argetinatv/files/channels.txt location and the format is very basic, just one CHANNEL_NAME|CHANNEL_URL per line, if the channel name is repeated, the extra urls will be used as alternative streams for the channel. If there is any format error, the line is ignored.

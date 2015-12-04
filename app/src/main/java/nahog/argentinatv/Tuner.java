@@ -1,18 +1,25 @@
 package nahog.argentinatv;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by nahog on 2015/11/26.
- */
-public class Tuner {
+public class Tuner implements Iterable<Channel> {
 
-    List<Channel> channels = new ArrayList<Channel>();
-    int channelIndex = 0;
+    private List<Channel> channels = new ArrayList<>();
+    private int channelIndex = 0;
+
+    @Override
+    public Iterator<Channel> iterator() {
+        return this.channels.iterator();
+    }
 
     public void addChannel(Channel channel) {
-        this.channels.add(channel);
+        this.channels.add(0, channel);
+    }
+
+    public int getChannelCount() {
+        return this.channels.size();
     }
 
     public Channel getChannelByName(String name) {
@@ -29,14 +36,6 @@ public class Tuner {
         return channels.get(channelIndex);
     }
 
-    public String getDescription() {
-        StringBuilder description = new StringBuilder();
-        for (Channel channel : this.channels) {
-            description.append(channel.getName() + (this.getCurrentChannel() == channel ? " ◁" : "") + "\n");
-        }
-        return description.toString();
-    }
-
     public int getCurrentChannelIndex() {
         return channelIndex;
     }
@@ -46,7 +45,7 @@ public class Tuner {
             this.channelIndex = index;
     }
 
-    public Channel getNextChannel() {
+    public Channel nextChannel() {
         if (channels.isEmpty())
             return null;
         if (channelIndex >= channels.size() - 1)
@@ -56,7 +55,7 @@ public class Tuner {
         return channels.get(channelIndex);
     }
 
-    public Channel getPreviousChannel() {
+    public Channel previousChannel() {
         if (channels.isEmpty())
             return null;
         if (channelIndex == 0)
@@ -65,5 +64,4 @@ public class Tuner {
             channelIndex--;
         return channels.get(channelIndex);
     }
-
 }

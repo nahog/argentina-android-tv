@@ -3,12 +3,9 @@ package nahog.argentinatv;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nahog on 2015/11/26.
- */
 public class Channel {
 
-    List<String> streamsUrls = new ArrayList<String>();
+    List<String> streamsUrls = new ArrayList<>();
     int streamIndex = 0;
     String name = "Channel";
 
@@ -26,7 +23,7 @@ public class Channel {
     }
 
     public String getDescription() {
-        return this.name + (this.streamIndex == 0 ? "" : "/" + this.streamIndex);
+        return this.name + ((this.streamsUrls.size() <= 1) ? "" : " (" + (this.streamIndex + 1) + " of " + this.streamsUrls.size() + " streams)");
     }
 
     public String getCurrentStream() {

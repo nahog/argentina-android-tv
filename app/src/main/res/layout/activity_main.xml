@@ -2,26 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nahog.androidtveltrece.MainActivity">
+    tools:context="nahog.argentinatv.MainActivity"
+    android:background="@android:color/background_dark">
     <VideoView
         android:id="@+id/video"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
     <TextView
         android:id="@+id/text"
-        android:textSize="40dp"
+        android:textSize="32sp"
         android:padding="8dp"
         android:background="@android:color/background_dark"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginLeft="32dp"/>
+        android:layout_marginStart="32dp"/>
     <TextView
         android:id="@+id/channels"
-        android:textSize="26dp"
+        android:textSize="26sp"
         android:padding="16dp"
         android:background="@android:color/background_dark"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_width="300dp"
         android:layout_height="fill_parent"/>
 </RelativeLayout>
