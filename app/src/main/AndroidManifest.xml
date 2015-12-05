@@ -33,11 +33,4 @@
 
     </application>
 
-    <!-- android:banner="@drawable/app_icon_your_company"
-            android:icon="@drawable/app_icon_your_company"
-            android:logo="@drawable/app_icon_your_company"
-                    <activity android:name=".DetailsActivity" />
-        <activity android:name=".PlaybackOverlayActivity" />
-        <activity android:name=".BrowseErrorActivity" />
-             -->
 </manifest>

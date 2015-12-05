@@ -1,5 +1,7 @@
 package nahog.argentinatv;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +10,12 @@ public class Channel {
     List<String> streamsUrls = new ArrayList<>();
     int streamIndex = 0;
     String name = "Channel";
+    Context context;
 
-    public Channel(String baseStream, String name) {
+    public Channel(String baseStream, String name, Context context) {
         this.streamsUrls.add(baseStream);
         this.name = name;
+        this.context = context;
     }
 
     public void addStream(String stream) {
@@ -23,7 +27,8 @@ public class Channel {
     }
 
     public String getDescription() {
-        return this.name + ((this.streamsUrls.size() <= 1) ? "" : " (" + (this.streamIndex + 1) + " of " + this.streamsUrls.size() + " streams)");
+        return this.name + ((this.streamsUrls.size() <= 1) ? "" : " (" + (this.streamIndex + 1) + " " + context.getString(R.string.of) + " " + this.streamsUrls.size() + " " + context.getString(R.string.streams) + ")");
+
     }
 
     public String getCurrentStream() {

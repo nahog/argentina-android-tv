@@ -4,4 +4,6 @@
     <string name="saved_channel">0</string>
     <string name="tuner">Tuner</string>
     <string name="tuning">Tuning</string>
+    <string name="of">of</string>
+    <string name="streams">streams</string>
 </resources>

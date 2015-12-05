@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
     private static boolean isInMenu = false;
     private static int menuIndex = -1;
 
-    private static Channel defaultChannel = new Channel("rtsp://stream.eltrecetv.com.ar/live13/13tv/13tv1", "El Trece");
+    private Channel defaultChannel = new Channel("rtsp://stream.eltrecetv.com.ar/live13/13tv/13tv1", "El Trece", this);
     private static String defaultChannels = "El Trece|rtsp://stream.eltrecetv.com.ar/live13/13tv/13tv1\n" +
                                             "TN|rtsp://stream.tn.com.ar/live/tnhd1\n" +
                                             "TN|rtsp://stream.tn.com.ar/live/tnhd2\n" +
@@ -114,6 +114,14 @@ public class MainActivity extends Activity {
                         else
                             MainActivity.menuIndex--;
                         channelView.setText(Html.fromHtml(getChannelGridMenu(currentChannel, tuner)));
+                    }
+
+                    // Close the channels menu.
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        MainActivity.isInMenu = false;
+                        MainActivity.menuIndex = -1;
+                        textView.setVisibility(View.INVISIBLE);
+                        channelView.setVisibility(View.INVISIBLE);
                     }
 
                     // Access the channel list and info with the guide button or dpad center button.
@@ -267,10 +275,8 @@ public class MainActivity extends Activity {
                 Channel channel = tuner.getChannelByName(lineParts[0]);
                 if (channel != null) {
                     channel.addStream(lineParts[1]);
-                    //channel.addStream("http://techslides.com/demos/sample-videos/small.mp4?stream=" + channel.getStreamCount()); // Test stream
                 } else {
-                    channel = new Channel(lineParts[1], lineParts[0]);
-                    //channel = new Channel("http://techslides.com/demos/sample-videos/small.mp4", lineParts[0]); // Test stream
+                    channel = new Channel(lineParts[1], lineParts[0], this);
                     tuner.addChannel(channel);
                 }
             }
@@ -279,7 +285,7 @@ public class MainActivity extends Activity {
             }
         }
         if (tuner.getChannelCount() == 0)
-            tuner.addChannel(MainActivity.defaultChannel);
+            tuner.addChannel(this.defaultChannel);
     }
 
     /// Set the video view source to the new channel stream

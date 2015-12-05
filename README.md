@@ -18,9 +18,9 @@ The idea behind this app is to have access to IPTV services from my home country
 The app is meant to be used with the remote control, and only uses the D-PAD and the Channel Up/Down buttons.
 
 - Channel up and down moves between channels.
-- D-PAD up and down also moves between channels (when the channel list is not open).
+- D-PAD up and down also moves between channels. When the channel list is open moves between channels to tune a new one.
 - D-PAD right and left moves between alternative streams of the same channel.
-- Center button provides channel list and current channel OSD.
+- Center button provides channel list and current channel OSD. Center again tune the new channel, back button close the menu without tunning a new channel.
 - Volumen Up, Down and mute pass through and controls the TV function.
 
 ## Technical details
