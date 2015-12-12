@@ -2,6 +2,7 @@ package nahog.argentinatv;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -175,6 +176,10 @@ public class MainActivity extends Activity {
                     }
                 }
 
+                if (keyCode == KeyEvent.KEYCODE_MEDIA_STOP) {
+                    videoView.suspend();
+                }
+
                 // Do not process any other event.
                 return true;
             }
@@ -292,7 +297,19 @@ public class MainActivity extends Activity {
     private void changeStream(final CountDownTimer timer, final Tuner tuner, final Channel channel) {
         timer.cancel();
         videoView.setVideoURI(Uri.parse(channel.getCurrentStream()));
-        final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, getString(R.string.tuner), getString(R.string.tuning) + " " + channel.getDescription() + "...", true);
+        //final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, getString(R.string.tuner), getString(R.string.tuning) + " " + channel.getDescription() + "...", true);
+        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle(getString(R.string.tuner));
+        progressDialog.setMessage(getString(R.string.tuning) + " " + channel.getDescription() + "...");
+        progressDialog.setCancelable(false);
+        progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                videoView.suspend();
+                dialog.dismiss();
+            }
+        });
+        progressDialog.show();
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             public void onPrepared(MediaPlayer mp) {
                 progressDialog.dismiss();
