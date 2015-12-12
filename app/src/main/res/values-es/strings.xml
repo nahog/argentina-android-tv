@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TV en vivo</string>
+    <string name="title_activity_main">TV en vivo</string>
+    <string name="saved_channel">0</string>
+    <string name="tuner">Sintonizador</string>
+    <string name="tuning">Sintonizando</string>
+    <string name="of">de</string>
+    <string name="streams">sub-canales</string>
+    <string name="cancel">Cancelar</string>
+</resources>
